@@ -39,6 +39,10 @@ class Configuration
         if ($sudo) {
             chown(static::path(), $_SERVER['SUDO_USER']);
         }
+
+        if (windows_os()) {
+            file_put_contents(__DIR__.'/../vendor/homepath', home_path());
+        }
     }
 
     /**
